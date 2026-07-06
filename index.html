@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title> TrustFix — Home Services, Trusted BY THE SERVICES </title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;font-family:'Segoe UI',Arial,sans-serif;background:#CBD5E1}
+:root{
+  --navy:#0F2044;--teal:#0D9488;--tealL:#14B8A6;--mint:#CCFBF1;
+  --slate:#334155;--gray:#64748B;--light:#F1F5F9;--white:#FFFFFF;
+  --gold:#F59E0B;--red:#EF4444;--green:#10B981;--orange:#F97316;
+  --surface-1:#F1F5F9;--surface-2:#FFFFFF;
+  --text-primary:#0F2044;--text-secondary:#334155;--text-muted:#64748B;
+  --border:#E2E8F0;--border-strong:#CBD5E1;
+}
+.page-wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:16px 0 32px;gap:10px}
+.page-title{font-size:13px;color:#475569;font-weight:600;letter-spacing:.5px}
+.mode-row{display:flex;gap:8px}
+.ms-btn{padding:7px 18px;border-radius:20px;font-size:11px;font-weight:700;cursor:pointer;border:none;transition:all .2s}
+.phone{width:360px;min-height:680px;background:var(--white);border-radius:20px;border:2.5px solid #334155;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.22);display:flex;flex-direction:column}
+.sbar{background:var(--navy);padding:5px 14px;display:flex;justify-content:space-between;font-size:10px;color:#94A3B8;flex-shrink:0}
+.scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.scroll::-webkit-scrollbar{width:3px}
+.scroll::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:3px}
+.appbar{background:var(--navy);padding:10px 14px;display:flex;align-items:center;gap:9px;position:sticky;top:0;z-index:5;flex-shrink:0}
+.appbar-title{font-size:13px;font-weight:700;color:#fff;flex:1}
+.appbar-sub{font-size:9px;color:var(--tealL)}
+.back{color:#fff;font-size:20px;cursor:pointer;line-height:1;flex-shrink:0;user-select:none}
+.btn{display:block;width:100%;padding:10px;border-radius:10px;font-weight:700;font-size:12px;cursor:pointer;border:none;text-align:center;transition:opacity .15s;font-family:inherit}
+.btn:active{opacity:.8}
+.btn-p{background:var(--teal);color:#fff}
+.btn-o{background:transparent;color:var(--teal);border:1.5px solid var(--teal)}
+.btn-g{background:var(--light);color:var(--slate)}
+.btn-gr{background:var(--green);color:#fff}
+.btn-d{background:#FEF2F2;color:var(--red);border:1px solid #FECACA}
+.btn-n{background:var(--navy);color:#fff}
+.card{background:var(--surface-2);border-radius:10px;border:.5px solid var(--border);padding:11px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.badge{font-size:9px;font-weight:700;padding:2px 6px;border-radius:10px;display:inline-block}
+.sec-lbl{font-size:9px;font-weight:700;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px;margin-top:4px}
+.stars{color:var(--gold);font-size:11px}
+.inp{width:100%;background:var(--light);border:.5px solid var(--border-strong);border-radius:8px;padding:9px 11px;font-size:12px;color:var(--slate);outline:none;margin-bottom:7px;font-family:inherit}
+.inp:focus{border-color:var(--teal)}
+.nav-bar{display:flex;border-top:.5px solid var(--border);background:var(--surface-2);flex-shrink:0}
+.nav-item{flex:1;text-align:center;padding:7px 0;cursor:pointer;font-size:8px;color:var(--gray);user-select:none}
+.nav-item.act{color:var(--teal);font-weight:700}
+.nav-icon{font-size:18px;display:block;margin-bottom:1px}
+.chip{padding:5px 9px;border-radius:20px;font-size:10px;cursor:pointer;white-space:nowrap;flex-shrink:0;font-weight:600;user-select:none}
+.pill{padding:3px 7px;border-radius:20px;font-size:10px;cursor:pointer;font-weight:600;display:inline-block;margin:2px;user-select:none}
+.tag{background:var(--light);color:var(--slate);font-size:9px;padding:3px 7px;border-radius:5px;display:inline-block;margin:2px 2px 2px 0}
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:.5px solid var(--border);font-size:11px}
+.step-dot{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0}
+.flow-line{flex:1;height:2px;margin:0 3px;margin-bottom:14px}
+textarea{width:100%;background:var(--light);border:.5px solid var(--border-strong);border-radius:8px;padding:8px 10px;font-size:11px;outline:none;resize:none;min-height:55px;box-sizing:border-box;font-family:inherit;color:var(--text-primary)}
+.toggle{width:32px;height:18px;border-radius:10px;position:relative;cursor:pointer;transition:background .2s;flex-shrink:0}
+.toggle-knob{width:14px;height:14px;background:#fff;border-radius:50%;position:absolute;top:2px;transition:left .2s}
+.panel-label{font-size:11px;font-weight:700;color:var(--text-primary);margin-bottom:8px}
+.footer-note{font-size:10px;color:#64748B;text-align:center;margin-top:4px}
+</style>
+</head>
+<body>
+<div class="page-wrap">
+  <div class="page-title"> TrustFix · Interactive Prototype · Week 3 PM6.O</div>
+  <div class="mode-row">
+    <button id="mode-cust" class="ms-btn" style="background:#0D9488;color:#fff" onclick="startCustomer()">👤 Customer Journey Experience</button>
+    <button id="mode-pro" class="ms-btn" style="background:#0F2044;color:#fff" onclick="startPro()">🔧 Professional Journey Experience</button>
+  </div>
+  <div class="phone">
+    <div class="sbar"><span>9:41</span><span>📶 🔋</span></div>
+    <div class="scroll" id="scroll"></div>
+  </div>
+  <div class="footer-note"> E-Cell IIT Guwahati PM6.O Course 2026 </div>
+  <div class="footer-note"> Built with the guidance of several resources </div>
+  <div class="footer-note"> Myself NILESH KUSHWAHA </div>
+  <div class="footer-note"> SOPHOMORE (CSE) </div>
+  <div class="footer-note"> Maa Pateshwari Devi Rajkiya Engineering College, Gonda </div>
+  <div class="footer-note"> Linkedin id: https://www.linkedin.com/in/nilesh-kushwaha-31414a396/ </div>
+  <div class="footer-note"> Instagram id : https://www.instagram.com/its_nilesh_2468/ </div> 
+</div>
+
+<script>
+const C={navy:"#0F2044",teal:"#0D9488",tealL:"#14B8A6",mint:"#CCFBF1",gold:"#F59E0B",red:"#EF4444",green:"#10B981",orange:"#F97316",slate:"#334155",gray:"#64748B",light:"#F1F5F9",white:"#FFFFFF"};
+
+const PROS=[
+  {id:1,name:"Ramu Verma",role:"Electrician",rating:4.9,reviews:87,price:299,dist:"1.2 km",avail:"Available now",verified:true,badge:"Top Pro",exp:"12 yrs",tags:["Wiring","Fan Install","MCB","Short Circuit","AC Wiring"],jobs:143,city:"Alambagh, Lucknow",color:C.teal,
+   reviewList:[{name:"Anita S.",stars:5,text:"Came on time. Fixed the wiring in 40 mins. Exact quote, no surprises."},{name:"Priya K.",stars:5,text:"MCB and fan done in 1 hour. No mess left behind."},{name:"Rohit M.",stars:4,text:"Great quality, came 20 mins late."}],
+   services:[{name:"Fan installation",price:249},{name:"MCB replacement",price:399},{name:"Full wiring (1BHK)",price:1999},{name:"Hourly",price:"299/hr"}]},
+  {id:2,name:"Suresh Kumar",role:"Electrician",rating:4.8,reviews:62,price:350,dist:"2.1 km",avail:"Available today",verified:true,badge:"Gold",exp:"9 yrs",tags:["Panel Box","Industrial","Inverter"],jobs:98,city:"Hazratganj, Lucknow",color:"#F59E0B",
+   reviewList:[{name:"Deepak R.",stars:5,text:"Fixed complex panel issue. Professional and fast."}],
+   services:[{name:"Fan installation",price:299},{name:"Panel check",price:499}]},
+  {id:3,name:"Manoj Singh",role:"Electrician",rating:4.3,reviews:31,price:249,dist:"3.4 km",avail:"Available tomorrow",verified:false,badge:null,exp:"5 yrs",tags:["Fan","Light Fitting"],jobs:47,city:"Indira Nagar, Lucknow",color:"#6366F1",
+   reviewList:[{name:"Seema P.",stars:4,text:"Good work. Minor delay but quality fine."}],
+   services:[{name:"Fan installation",price:199},{name:"Light fitting",price:149}]},
+  {id:4,name:"Kavita Rani",role:"House Cleaner",rating:4.7,reviews:55,price:199,dist:"0.8 km",avail:"Available now",verified:true,badge:"Top Pro",exp:"7 yrs",tags:["Deep Clean","Kitchen","Bathroom"],jobs:112,city:"Gomti Nagar, Lucknow",color:"#EC4899",
+   reviewList:[{name:"Nisha T.",stars:5,text:"House spotless after deep clean. Highly recommend!"}],
+   services:[{name:"Full home clean (2BHK)",price:599},{name:"Kitchen deep clean",price:299},{name:"Bathroom clean",price:149}]},
+];
+
+const CATS=[{icon:"⚡",name:"Electrician"},{icon:"🔧",name:"Plumber"},{icon:"🧹",name:"House Cleaner"},{icon:"❄️",name:"AC Repair"},{icon:"🪚",name:"Carpenter"},{icon:"🎨",name:"Painter"},{icon:"🔩",name:"Appliance"},{icon:"➕",name:"More"}];
+
+let S={
+  screen:"splash",mode:"customer",
+  userName:"",proName:"",
+  loginStep:0,phoneVal:"",otpVals:["","","","","",""],nameVal:"",
+  selCat:null,selPro:null,proTab:"overview",
+  bookStep:0,bookDate:1,bookTime:1,bookSvc:0,bookNote:"",bookAddr:"Flat 4B, Sunrise Apartments",bookPay:"UPI",
+  booking:null,tracked:false,jobDone:false,
+  ratingStars:4,ratingTags:["On time","Good quality"],ratingSubmitted:false,
+  verifiedOnly:true,catFilter:"All",
+  proAvail:true,proAccepted:false,
+};
+
+function ss(patch){Object.assign(S,patch);render();}
+function go(s){ss({screen:s});}
+
+function strs(n,t=5){return'<span class="stars">'+"★".repeat(n)+"☆".repeat(t-n)+"</span>";}
+
+function navBar(active,mode="customer"){
+  const ci=[["home","🏠","Home"],["bookings","📋","Bookings"],["chat","💬","Chat"],["profile","👤","Profile"]];
+  const pi=[["pro_home","🏠","Home"],["pro_jobs","📋","Jobs"],["pro_earn","💰","Earn"],["pro_profile","👤","Profile"]];
+  const items=mode==="pro"?pi:ci;
+  return`<div class="nav-bar">${items.map(([id,ic,lb])=>`<div class="nav-item${active===id?" act":""}" onclick="go('${id}')"><span class="nav-icon">${ic}</span>${lb}</div>`).join("")}</div>`;
+}
+
+function abar(title,sub,back,right=""){
+  return`<div class="appbar">${back?`<span class="back" onclick="${back}">←</span>`:""}
+  <div style="flex:1"><div class="appbar-title">${title}</div>${sub?`<div class="appbar-sub">${sub}</div>`:""}</div>${right}</div>`;
+}
+
+function stepper(steps,cur){
+  return`<div style="display:flex;align-items:center;padding:8px 14px 4px">${steps.map((s,i)=>`
+    <div style="display:flex;flex-direction:column;align-items:center">
+      <div class="step-dot" style="background:${i<cur?C.teal:i===cur?C.navy:"#E2E8F0"};${i===cur?`border:2px solid ${C.teal}`:""}">${i<cur?"✓":i+1}</div>
+      <div style="font-size:8px;color:${i<=cur?C.teal:"#94A3B8"};margin-top:2px">${s}</div>
+    </div>
+    ${i<steps.length-1?`<div class="flow-line" style="background:${i<cur?C.teal:"#E2E8F0"}"></div>`:""}`).join("")}</div>`;
+}
+
+// ── SCREENS ──────────────────────────────────────────────────────
+
+function splashScreen(){
+  return`<div style="padding:0 22px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:600px;text-align:center">
+    <div style="font-size:72px;margin-bottom:10px">🛡️</div>
+    <div style="font-size:34px;font-weight:800;color:${C.navy};letter-spacing:-1px">TrustFix</div>
+    <div style="font-size:14px;color:${C.teal};font-style:italic;margin-bottom:8px">Home services, trusted.</div>
+    <div style="font-size:11px;color:${C.gray};max-width:250px;line-height:1.7;margin-bottom:48px">Book verified plumbers, electricians, cleaners and more. Transparent pricing. Guaranteed work.</div>
+    <button class="btn btn-p" style="margin-bottom:10px" onclick="startCustomer()">Book a Service (Customer)</button>
+    <button class="btn btn-o" onclick="startPro()">I'm a Service Professional</button>
+    <div style="font-size:9px;color:${C.gray};margin-top:22px">TrustFix v1.0 · Lucknow Beta</div>
+  </div>`;
+}
+
+function loginScreen(){
+  const {loginStep,phoneVal,otpVals,nameVal,mode}=S;
+  if(loginStep===0) return`<div style="padding:24px 18px">
+    <div style="font-size:22px;font-weight:800;color:${C.navy};margin-bottom:4px">Enter your number</div>
+    <div style="font-size:11px;color:${C.gray};margin-bottom:24px">We'll send a 6-digit OTP via SMS</div>
+    <div class="sec-lbl">MOBILE NUMBER</div>
+    <div style="display:flex;gap:7px;margin-bottom:10px">
+      <div style="background:${C.light};border:.5px solid #CBD5E1;border-radius:8px;padding:9px 11px;font-weight:700;font-size:12px;color:${C.navy}">+91</div>
+      <input class="inp" style="flex:1;margin:0;border-color:${phoneVal.length>=5?C.teal:"#CBD5E1"}" placeholder="98XX XXX XXX" value="${phoneVal}" oninput="ss({phoneVal:this.value})">
+    </div>
+    <div style="font-size:10px;color:${C.gray};margin-bottom:24px">By continuing you agree to our Terms of Service</div>
+    <button class="btn ${phoneVal.length>=5?"btn-p":"btn-g"}" onclick="if(S.phoneVal.length>=5)ss({loginStep:1})">Send OTP →</button>
+    ${mode==="customer"?`<div style="text-align:center;margin-top:16px;font-size:10px;color:${C.gray}">Are you a professional? <span style="color:${C.teal};font-weight:700;cursor:pointer">Register here</span></div>`:""}
+  </div>`;
+
+  if(loginStep===1) return`<div style="padding:24px 18px">
+    <div style="text-align:center;margin-bottom:18px">
+      <div style="font-size:40px">📱</div>
+      <div style="font-size:20px;font-weight:800;color:${C.navy};margin-top:8px">Verify your number</div>
+      <div style="font-size:11px;color:${C.gray}">Code sent to +91 ${S.phoneVal||"98XXXXXXXX"}</div>
+    </div>
+    <div style="display:flex;gap:7px;justify-content:center;margin-bottom:10px">
+      ${otpVals.map((v,i)=>`<input maxlength="1" value="${v}" oninput="handleOtp(this.value,${i})"
+        style="width:38px;height:46px;text-align:center;font-size:18px;font-weight:700;border:1.5px solid ${v?C.teal:"#CBD5E1"};border-radius:8px;outline:none;color:${C.navy};background:${C.light};font-family:inherit">`).join("")}
+    </div>
+    <div style="text-align:center;font-size:10px;color:${C.gray};margin-bottom:24px">Resend OTP in 0:45</div>
+    <button class="btn btn-p" onclick="ss({loginStep:2})">Verify &amp; Continue</button>
+  </div>`;
+
+  return`<div style="padding:24px 18px">
+    <div style="font-size:22px;font-weight:800;color:${C.navy};margin-bottom:4px">Set up your profile</div>
+    <div style="font-size:11px;color:${C.gray};margin-bottom:18px">Takes 30 seconds</div>
+    <div class="sec-lbl">YOUR NAME</div>
+    <input class="inp" placeholder="${S.mode==="pro"?"Ramu Verma":"Priya Sharma"}" value="${nameVal}" oninput="ss({nameVal:this.value})">
+    <div class="sec-lbl">CITY</div>
+    <input class="inp" value="Lucknow, UP" readonly>
+    ${S.mode==="pro"?`<div class="sec-lbl">PRIMARY SERVICE</div><input class="inp" placeholder="e.g. Electrician">`:""}
+    <button class="btn ${nameVal.length>=2?"btn-p":"btn-g"}" style="margin-top:8px" onclick="finishLogin()">Let's go! →</button>
+  </div>`;
+}
+
+function homeScreen(){
+  return`
+  <div style="background:${C.navy};padding:12px 14px 14px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div>
+        <div style="font-size:18px;font-weight:800;color:#fff">Trust<span style="color:${C.tealL}">Fix</span></div>
+        <div style="font-size:9px;color:${C.tealL}">📍 Gomti Nagar, Lucknow</div>
+      </div>
+      <div style="font-size:11px;color:${C.mint}">Hi, ${(S.userName||"Priya").split(" ")[0]} 👋</div>
+    </div>
+    <div style="display:flex;align-items:center;background:rgba(255,255,255,.12);border-radius:9px;padding:8px 11px;margin-top:10px;gap:8px">
+      <span>🔍</span>
+      <input placeholder="Search electrician, plumber..." style="background:transparent;border:none;outline:none;color:#fff;font-size:11px;flex:1;font-family:inherit" onfocus="ss({selCat:'All',catFilter:'All'});go('search')">
+    </div>
+  </div>
+  <div style="padding:12px 14px">
+    <div class="sec-lbl">CATEGORIES</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px">
+      ${CATS.map(c=>`<div onclick="ss({selCat:'${c.name}',catFilter:'All'});go('search')" style="text-align:center;cursor:pointer;padding:8px 3px;background:#fff;border-radius:9px;border:.5px solid #E2E8F0;box-shadow:0 1px 3px rgba(0,0,0,.05)">
+        <div style="font-size:24px">${c.icon}</div>
+        <div style="font-size:8px;color:${C.slate};margin-top:3px;font-weight:600">${c.name}</div>
+      </div>`).join("")}
+    </div>
+    <div class="sec-lbl">⭐ TOP RATED NEAR YOU</div>
+    ${PROS.slice(0,3).map(p=>`<div class="card" style="cursor:pointer" onclick="ss({selPro:${p.id},proTab:'overview'});go('pro_profile')">
+      <div style="display:flex;gap:9px;align-items:flex-start">
+        <div style="width:42px;height:42px;border-radius:50%;background:${p.color};display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;color:#fff;flex-shrink:0">${p.name[0]}</div>
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap">
+            <span style="font-size:12px;font-weight:700;color:${C.navy}">${p.name}</span>
+            ${p.verified?`<span class="badge" style="background:#0D948822;color:${C.teal}">✓ KYC</span>`:""}
+          </div>
+          <div style="font-size:10px;color:${C.gray}">${p.role} · ${p.dist}</div>
+          <div style="display:flex;align-items:center;gap:5px;margin-top:2px">
+            ${strs(Math.round(p.rating))}
+            <span style="font-size:9px;color:${C.gray}">${p.rating} (${p.reviews})</span>
+            <span style="margin-left:auto;font-size:11px;font-weight:700;color:${C.teal}">₹${p.price}/hr</span>
+          </div>
+        </div>
+      </div>
+    </div>`).join("")}
+  </div>
+  ${navBar("home")}`;
+}
+
+function searchScreen(){
+  let results=PROS.filter(p=>!S.selCat||S.selCat==="All"||p.role.toLowerCase().includes(S.selCat.toLowerCase())||S.selCat==="More");
+  if(S.verifiedOnly) results=results.filter(p=>p.verified);
+  const filters=["All","⭐ Top Rated","📍 Nearest","💰 Low Price"];
+  return`
+  ${abar(S.selCat||"All Services",`${results.length} professionals found`,"go('home')")}
+  <div style="padding:9px 14px 0">
+    <div style="display:flex;gap:6px;overflow-x:auto;padding-bottom:3px">
+      ${filters.map(f=>`<div class="chip" style="background:${S.catFilter===f?C.teal:"#F1F5F9"};color:${S.catFilter===f?"#fff":C.slate}" onclick="ss({catFilter:'${f}'})">
+        ${f}
+      </div>`).join("")}
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;font-size:11px;color:${C.slate}">
+      <span>KYC verified only</span>
+      <div class="toggle" style="background:${S.verifiedOnly?C.teal:"#E2E8F0"}" onclick="ss({verifiedOnly:!S.verifiedOnly})">
+        <div class="toggle-knob" style="left:${S.verifiedOnly?16:2}px"></div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:0 14px 16px">
+    ${results.length===0?`<div style="text-align:center;padding:40px 20px;color:${C.gray};font-size:12px;line-height:1.7">
+      No verified professionals in this category yet.<br>
+      <span style="color:${C.teal};font-size:11px;cursor:pointer" onclick="ss({verifiedOnly:false})">Turn off filter to see all pros →</span>
+    </div>`:""}
+    ${results.map(p=>`<div class="card" style="cursor:pointer" onclick="ss({selPro:${p.id},proTab:'overview'});go('pro_profile')">
+      <div style="display:flex;gap:9px;align-items:flex-start">
+        <div style="width:42px;height:42px;border-radius:50%;background:${p.color};display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;color:#fff;flex-shrink:0">${p.name[0]}</div>
+        <div style="flex:1">
+          <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap">
+            <span style="font-size:12px;font-weight:700;color:${C.navy}">${p.name}</span>
+            ${p.verified?`<span class="badge" style="background:#0D948822;color:${C.teal}">✓ KYC</span>`:""}
+            ${p.badge?`<span class="badge" style="background:#F59E0B22;color:${C.gold}">${p.badge==="Gold"?"⭐":"🏆"} ${p.badge}</span>`:""}
+          </div>
+          <div style="font-size:10px;color:${C.gray}">${p.role} · ${p.dist} · ${p.avail}</div>
+          <div style="display:flex;align-items:center;gap:4px;margin-top:2px">
+            ${strs(Math.round(p.rating))}
+            <span style="font-size:9px;color:${C.gray}">${p.rating}</span>
+            <span style="margin-left:auto;font-size:11px;font-weight:700;color:${C.teal}">₹${p.price}/hr</span>
+          </div>
+        </div>
+      </div>
+    </div>`).join("")}
+  </div>`;
+}
+
+function proProfileScreen(){
+  const p=PROS.find(x=>x.id===S.selPro)||PROS[0];
+  const tab=S.proTab;
+  return`
+  ${abar(p.name,`${p.role} · ${p.dist}`,"go('search')")}
+  <div style="padding:14px 14px 10px;background:#fff;border-bottom:.5px solid #E2E8F0">
+    <div style="display:flex;gap:12px;align-items:flex-start">
+      <div style="width:60px;height:60px;border-radius:50%;background:${p.color};display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;color:#fff;flex-shrink:0">${p.name[0]}</div>
+      <div style="flex:1">
+        ${p.verified?`<div style="display:inline-flex;align-items:center;gap:3px;background:#ECFDF5;color:#059669;font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;margin-bottom:3px">✅ KYC Verified</div>`:""}
+        <div style="font-size:17px;font-weight:800;color:${C.navy}">${p.name}</div>
+        <div style="font-size:11px;color:${C.gray}">${p.role} · ${p.exp} experience</div>
+        <div style="display:flex;align-items:center;gap:5px;margin-top:3px">
+          ${strs(Math.round(p.rating))}
+          <span style="font-size:10px;color:${C.gray}">${p.rating} (${p.reviews} reviews)</span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:9px">${p.tags.map(t=>`<span class="tag">${t}</span>`).join("")}</div>
+  </div>
+  <div style="display:flex;background:#fff;border-bottom:.5px solid #E2E8F0">
+    ${["overview","reviews","pricing"].map(t=>`<div onclick="ss({proTab:'${t}'})" style="flex:1;text-align:center;padding:9px 0;font-size:11px;font-weight:700;color:${tab===t?C.teal:C.gray};border-bottom:2px solid ${tab===t?C.teal:"transparent"};cursor:pointer;text-transform:capitalize">${t}</div>`).join("")}
+  </div>
+  <div style="padding:12px 14px">
+    ${tab==="overview"?`
+      <div class="card">
+        ${[["📍 Location",p.city],["⏱ Avg response","Under 30 mins"],["✅ Jobs done",`${p.jobs} completed`],["💰 Base rate",`₹${p.price}/hr`]].map(([l,v])=>`
+        <div class="info-row"><span style="color:${C.gray}">${l}</span><span style="font-weight:700;color:${C.navy}">${v}</span></div>`).join("")}
+      </div>
+      <button class="btn btn-p" onclick="go('booking')">Book Now</button>
+      <button class="btn btn-o" style="margin-top:7px">💬 Chat First</button>
+    `:""}
+    ${tab==="reviews"?`
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <div style="font-size:38px;font-weight:800;color:${C.navy}">${p.rating}</div>
+        <div>${strs(5)}<br><span style="font-size:9px;color:${C.gray}">${p.reviews} verified reviews</span></div>
+      </div>
+      ${p.reviewList.map(r=>`<div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+          <span style="font-size:11px;font-weight:700;color:${C.navy}">${r.name}</span>${strs(r.stars)}
+        </div>
+        <div style="font-size:10px;color:${C.slate};line-height:1.5">${r.text}</div>
+        <div style="font-size:8px;color:${C.gray};margin-top:3px">✅ Verified booking</div>
+      </div>`).join("")}
+      <button class="btn btn-p" style="margin-top:4px" onclick="go('booking')">Book ${p.name.split(" ")[0]}</button>
+    `:""}
+    ${tab==="pricing"?`
+      <div class="sec-lbl">SERVICES OFFERED</div>
+      <div class="card">
+        ${p.services.map((sv,i)=>`<div class="info-row" style="${i===p.services.length-1?"border:none":""}">
+          <span style="font-size:11px;color:${C.slate}">${sv.name}</span>
+          <span style="font-weight:700;color:${C.teal}">₹${sv.price}</span>
+        </div>`).join("")}
+      </div>
+      <div class="sec-lbl">AVAILABLE TODAY</div>
+      <div style="display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px">
+        ${["10:00 AM","11:30 AM","2:00 PM","4:30 PM"].map((t,i)=>`<div style="padding:6px 11px;border-radius:8px;font-size:10px;background:${i===1?C.teal:"#F1F5F9"};color:${i===1?"#fff":C.slate};border:.5px solid ${i===1?C.teal:"#E2E8F0"};font-weight:${i===1?700:400}">${t}</div>`).join("")}
+      </div>
+      <button class="btn btn-p" onclick="go('booking')">Book ${p.name.split(" ")[0]}</button>
+    `:""}
+  </div>`;
+}
+
+function bookingScreen(){
+  const p=PROS.find(x=>x.id===S.selPro)||PROS[0];
+  const {bookStep,bookDate,bookTime,bookSvc,bookNote,bookAddr,bookPay}=S;
+  const dates=[{d:"27",wd:"Sat"},{d:"28",wd:"Sun"},{d:"29",wd:"Mon"},{d:"30",wd:"Tue"}];
+  const times=["9:00 AM","11:30 AM","2:00 PM","4:30 PM"];
+  const svcPrice=p.services[bookSvc]?.price||p.price;
+  const numP=Number(String(svcPrice).replace("/hr",""));
+  const fee=Math.round(numP*0.1);
+  const tax=Math.round((numP+fee)*0.18);
+  const total=numP+fee+tax;
+  return`
+  ${abar("Book Service",`with ${p.name}`,`if(S.bookStep>0)ss({bookStep:S.bookStep-1});else go('pro_profile')`)}
+  ${stepper(["Date","Address","Pay"],bookStep)}
+  <div style="padding:8px 14px 80px">
+  ${bookStep===0?`
+    <div class="card">
+      <div class="panel-label">📅 Select Date</div>
+      <div style="display:flex;gap:6px">
+        ${dates.map((d,i)=>`<div onclick="ss({bookDate:${i}})" style="flex:1;text-align:center;padding:7px 3px;border-radius:9px;cursor:pointer;background:${bookDate===i?C.navy:"#F1F5F9"};border:1.5px solid ${bookDate===i?C.teal:"#E2E8F0"}">
+          <div style="font-size:17px;font-weight:800;color:${bookDate===i?"#fff":C.navy}">${d.d}</div>
+          <div style="font-size:8px;color:${bookDate===i?"#94A3B8":C.gray}">${d.wd}</div>
+        </div>`).join("")}
+      </div>
+    </div>
+    <div class="card">
+      <div class="panel-label">⏰ Select Time</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        ${times.map((t,i)=>`<div onclick="ss({bookTime:${i}})" style="padding:6px 10px;border-radius:7px;font-size:10px;cursor:pointer;background:${bookTime===i?C.teal:"#F1F5F9"};color:${bookTime===i?"#fff":C.slate};font-weight:${bookTime===i?700:400};border:.5px solid ${bookTime===i?C.teal:"#E2E8F0"}">${t}</div>`).join("")}
+      </div>
+    </div>
+    <div class="card">
+      <div class="panel-label">📝 Describe your issue</div>
+      <textarea placeholder="e.g. Fan not working in bedroom..." oninput="ss({bookNote:this.value})">${bookNote}</textarea>
+    </div>
+    <button class="btn btn-p" onclick="ss({bookStep:1})">Next: Address →</button>
+  `:""}
+  ${bookStep===1?`
+    <div class="card">
+      <div class="panel-label">📍 Service Address</div>
+      <input class="inp" value="${bookAddr}" oninput="ss({bookAddr:this.value})">
+      <input class="inp" value="Gomti Nagar, Lucknow - 226010" readonly>
+    </div>
+    <div class="card">
+      <div class="panel-label">🔧 Service Type</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px">
+        ${p.services.map((sv,i)=>`<div onclick="ss({bookSvc:${i}})" style="padding:5px 9px;border-radius:7px;font-size:10px;cursor:pointer;background:${bookSvc===i?C.teal:"#F1F5F9"};color:${bookSvc===i?"#fff":C.slate};font-weight:${bookSvc===i?700:400}">${sv.name}</div>`).join("")}
+      </div>
+    </div>
+    <button class="btn btn-p" onclick="ss({bookStep:2})">Next: Payment →</button>
+  `:""}
+  ${bookStep===2?`
+    <div class="card">
+      <div class="panel-label">Order Summary</div>
+      ${[["Service",`${p.services[bookSvc]?.name||"Service"}`,`₹${svcPrice}`],["Platform fee (10%)","",`₹${fee}`],["GST (18%)","",`₹${tax}`]].map(([l,s,v])=>`
+      <div class="info-row"><span style="color:${C.gray}">${l}${s?" · "+s:""}</span><span>${v}</span></div>`).join("")}
+      <div style="display:flex;justify-content:space-between;padding:7px 0 0;font-size:14px;font-weight:800;color:${C.navy}">
+        <span>Total</span><span>₹${total}</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="panel-label">💳 Payment Method</div>
+      <div style="display:flex;gap:7px">
+        ${["UPI","Card","Cash"].map(m=>`<div onclick="ss({bookPay:'${m}'})" style="flex:1;text-align:center;padding:7px 3px;border-radius:8px;cursor:pointer;background:${bookPay===m?C.teal:"#F1F5F9"};color:${bookPay===m?"#fff":C.slate};font-size:11px;font-weight:700;border:.5px solid ${bookPay===m?C.teal:"#E2E8F0"}">${m}</div>`).join("")}
+      </div>
+    </div>
+    <div style="background:#ECFDF5;border:1px solid #A7F3D0;border-radius:9px;padding:9px 11px;margin-bottom:10px;font-size:10px;color:#065F46">🛡️ 7-day work guarantee included · KYC-verified professional</div>
+    <button class="btn btn-gr" onclick="confirmBooking(${total},'${times[bookTime]}','${dates[bookDate].wd}','${dates[bookDate].d}',${bookSvc})">✅ Confirm &amp; Pay ₹${total}</button>
+  `:""}
+  </div>`;
+}
+
+function confirmedScreen(){
+  const b=S.booking; if(!b) return"";
+  if(S.jobDone) return ratingScreen();
+  if(S.tracked) return trackingScreen(b);
+  return`<div style="padding:30px 18px;text-align:center">
+    <div style="font-size:60px">✅</div>
+    <div style="font-size:22px;font-weight:800;color:${C.green};margin-top:10px">Booking Confirmed!</div>
+    <div style="font-size:11px;color:${C.gray};margin-top:4px">${b.proName} confirmed for ${b.wd} Jun ${b.d} at ${b.time}</div>
+    <div class="card" style="margin-top:18px;text-align:left">
+      ${[["📅 Date",`${b.wd}, Jun ${b.d}`],["⏰ Time",b.time],["🔧 Service",b.svc||"Service"],["💰 Paid",`₹${b.total} via ${b.pay}`],["🆔 Booking","#TF-8847"]].map(([l,v])=>`
+      <div class="info-row"><span style="color:${C.gray}">${l}</span><span style="font-weight:700;color:${C.navy}">${v}</span></div>`).join("")}
+    </div>
+    <button class="btn btn-p" style="margin-top:6px" onclick="ss({tracked:true})">📍 Track Booking</button>
+    <button class="btn btn-o" style="margin-top:8px" onclick="go('home')">Back to Home</button>
+  </div>`;
+}
+
+function trackingScreen(b){
+  return`
+  ${abar("Track Booking","#TF-8847")}
+  <div style="padding:12px 14px">
+    <div style="background:linear-gradient(135deg,${C.navy},#1e3a6e);border-radius:11px;padding:13px 14px;margin-bottom:11px;color:#fff">
+      <div style="font-size:9px;color:#94A3B8;margin-bottom:2px">Status</div>
+      <div style="font-size:14px;font-weight:800;color:${C.tealL}">🚗 ${b.proName} is on the way</div>
+      <div style="font-size:10px;color:#CBD5E1;margin-top:3px">ETA: ~15 minutes · 1.2 km away</div>
+      <div style="background:#E2E8F0;border-radius:9px;height:82px;margin-top:9px;position:relative;overflow:hidden">
+        <div style="position:absolute;width:55%;height:2px;background:${C.teal};opacity:.8;left:20%;top:50%"></div>
+        <div style="position:absolute;left:14%;font-size:20px;top:50%;transform:translateY(-50%)">📍</div>
+        <div style="position:absolute;right:11%;font-size:20px;top:50%;transform:translateY(-50%)">🏠</div>
+        <div style="position:absolute;left:40%;font-size:16px;top:50%;transform:translateY(-50%)">🚗</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="panel-label" style="margin-bottom:9px">Progress</div>
+      <div style="display:flex;align-items:flex-start">
+        ${["Booked","Accepted","En Route","Arrived","Done"].map((s,i)=>`
+          <div style="display:flex;align-items:center;flex:${i<4?1:0}">
+            <div style="display:flex;flex-direction:column;align-items:center">
+              <div class="step-dot" style="background:${i<3?C.teal:i===3?C.navy:"#E2E8F0"};${i===3?`border:2px solid ${C.teal}`:""}">${i<3?"✓":""}</div>
+              <div style="font-size:7px;color:${i<=3?C.teal:"#94A3B8"};margin-top:2px;text-align:center">${s}</div>
+            </div>
+            ${i<4?`<div class="flow-line" style="background:${i<3?C.teal:"#E2E8F0"}"></div>`:""}`).join("")}
+          </div>
+      </div>
+    </div>
+    <div style="display:flex;gap:9px;margin-bottom:9px">
+      ${[["📞","Call "+b.proName.split(" ")[0],C.teal],["🆘","Get Help",C.red]].map(([ic,lb,c])=>`
+      <div style="flex:1;background:#fff;border-radius:9px;border:.5px solid #E2E8F0;padding:9px 6px;text-align:center">
+        <div style="font-size:20px">${ic}</div>
+        <div style="font-size:9px;font-weight:700;color:${c};margin-top:2px">${lb}</div>
+      </div>`).join("")}
+    </div>
+    <button class="btn btn-g" onclick="ss({jobDone:true})">Simulate: Job completed ✓</button>
+    <button class="btn btn-o" style="margin-top:7px" onclick="go('home')">Back to Home</button>
+  </div>`;
+}
+
+function ratingScreen(){
+  const {ratingStars,ratingTags,ratingSubmitted}=S;
+  const allTags=["On time","Good quality","Clean workspace","Polite","Affordable","Expert"];
+  if(ratingSubmitted) return`<div style="padding:36px 18px;text-align:center">
+    <div style="font-size:60px">🎉</div>
+    <div style="font-size:20px;font-weight:800;color:${C.navy};margin-top:10px">Thanks for your review!</div>
+    <div style="font-size:11px;color:${C.gray};margin-top:4px;margin-bottom:22px">Your feedback helps build trust in the community.</div>
+    <div style="background:${C.mint};border-radius:10px;padding:12px 14px;margin-bottom:20px;font-size:11px;color:${C.navy}">🛡️ Your 7-day work guarantee is now active.<br>If anything needs fixing, we've got you covered.</div>
+    <button class="btn btn-p" onclick="go('home')">Back to Home</button>
+  </div>`;
+  return`<div style="padding:18px 14px">
+    <div style="text-align:center;margin-bottom:14px">
+      <div style="font-size:38px">🎉</div>
+      <div style="font-size:18px;font-weight:800;color:${C.navy}">Job Complete!</div>
+      <div style="font-size:11px;color:${C.gray}">How was the service?</div>
+    </div>
+    <div style="display:flex;justify-content:center;gap:5px;margin-bottom:6px">
+      ${[1,2,3,4,5].map(i=>`<div onclick="ss({ratingStars:${i}})" style="font-size:34px;cursor:pointer;color:${i<=ratingStars?C.gold:"#E2E8F0"}">★</div>`).join("")}
+    </div>
+    <div style="text-align:center;font-size:12px;color:${C.gold};font-weight:600;margin-bottom:14px">${["","Poor","Fair","Good","Very Good","Excellent!"][ratingStars]}</div>
+    <div class="sec-lbl">QUICK FEEDBACK</div>
+    <div style="margin-bottom:12px">
+      ${allTags.map(t=>`<span class="pill" style="background:${ratingTags.includes(t)?C.teal:"#F1F5F9"};color:${ratingTags.includes(t)?"#fff":C.slate}" onclick="toggleTag('${t}')">${ratingTags.includes(t)?"✓ ":""}${t}</span>`).join("")}
+    </div>
+    <textarea placeholder="Write a review (optional)..." style="margin-bottom:8px"></textarea>
+    <button class="btn btn-p" onclick="ss({ratingSubmitted:true})">Submit Review</button>
+  </div>`;
+}
+
+function bookingsScreen(){
+  return`
+  ${abar("My Bookings")}
+  <div style="padding:12px 14px">
+    <div class="card" style="background:#FEF3C7;border:1px solid #FDE68A">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div>
+          <div style="font-size:12px;font-weight:700;color:${C.navy}">Fan Installation</div>
+          <div style="font-size:10px;color:${C.gray}">Today · 11:30 AM · Ramu Verma</div>
+          <span class="badge" style="background:#F59E0B22;color:${C.gold};margin-top:4px">🚗 En Route</span>
+        </div>
+        <div style="background:${C.teal};color:#fff;border-radius:7px;padding:5px 9px;font-size:9px;font-weight:700;cursor:pointer">Track</div>
+      </div>
+    </div>
+    <div class="sec-lbl">PAST BOOKINGS</div>
+    ${[{s:"Full Wiring (1BHK)",pro:"Ramu Verma",d:"Jun 20",r:5,p:"₹2,499"},{s:"Deep House Clean",pro:"Kavita Rani",d:"Jun 10",r:5,p:"₹599"}].map(b=>`
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <div style="font-size:11px;font-weight:700;color:${C.navy}">${b.s}</div>
+          <div style="font-size:10px;color:${C.gray}">${b.d} · ${b.pro}</div>
+        </div>
+        <div style="text-align:right">${strs(b.r)}<br><span style="font-size:10px;color:${C.teal};font-weight:700">${b.p}</span></div>
+      </div>
+    </div>`).join("")}
+  </div>
+  ${navBar("bookings")}`;
+}
+
+// ── PRO SCREENS ──────────────────────────────────────────────────
+
+function proHomeScreen(){
+  return`
+  <div style="background:${C.navy};padding:12px 14px 14px">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div>
+        <div style="font-size:16px;font-weight:800;color:#fff">Trust<span style="color:${C.tealL}">Fix</span> Pro</div>
+        <div style="font-size:9px;color:${C.tealL}">Good morning, ${(S.proName||"Ramu").split(" ")[0]} 👋</div>
+      </div>
+      <div onclick="ss({proAvail:!S.proAvail})" style="background:${S.proAvail?"#059669":"#64748B"};color:#fff;font-size:9px;padding:5px 10px;border-radius:20px;font-weight:700;cursor:pointer">
+        ${S.proAvail?"🟢 Available":"🔴 Offline"}
+      </div>
+    </div>
+  </div>
+  <div style="padding:12px 14px">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:14px">
+      ${[["₹4,200","This Week"],["12","Jobs Done"],["4.9★","My Rating"]].map(([v,l])=>`
+      <div style="background:#fff;border-radius:9px;padding:9px 5px;text-align:center;border:.5px solid #E2E8F0">
+        <div style="font-size:16px;font-weight:800;color:${C.teal}">${v}</div>
+        <div style="font-size:8px;color:${C.gray};margin-top:1px">${l}</div>
+      </div>`).join("")}
+    </div>
+    ${!S.proAccepted&&S.proAvail?`
+      <div class="sec-lbl">🔔 NEW BOOKING REQUEST</div>
+      <div style="background:#ECFDF5;border:1px solid #A7F3D0;border-radius:11px;padding:11px;margin-bottom:11px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div>
+            <div style="font-size:12px;font-weight:700;color:${C.navy}">Fan Installation</div>
+            <div style="font-size:10px;color:${C.gray}">Today · 11:30 AM · 2.1 km away</div>
+            <div style="font-size:11px;color:#059669;font-weight:700;margin-top:2px">₹249 confirmed</div>
+          </div>
+          <div style="font-size:9px;color:${C.red};font-weight:700">⏳ 4:32 left</div>
+        </div>
+        <div style="display:flex;gap:7px;margin-top:9px">
+          <button class="btn btn-gr" style="flex:1;padding:7px 0" onclick="ss({proAccepted:true})">✅ Accept</button>
+          <button class="btn btn-d" style="flex:1;padding:7px 0">✗ Decline</button>
+        </div>
+      </div>
+    `:""}
+    ${!S.proAvail?`<div style="background:#F1F5F9;border-radius:10px;padding:11px;margin-bottom:11px;font-size:11px;color:${C.gray};text-align:center">You're offline. Toggle available to receive booking requests.</div>`:""}
+    ${S.proAccepted?`<div style="background:${C.mint};border:1px solid ${C.teal};border-radius:10px;padding:11px;margin-bottom:11px;font-size:11px;color:${C.navy};font-weight:600">✅ Job accepted! Navigate to Gomti Nagar by 11:30 AM.</div>`:""}
+    <div class="sec-lbl">UPCOMING JOBS</div>
+    <div class="card">
+      <div style="font-size:11px;font-weight:700;color:${C.navy}">MCB Check &amp; Replace</div>
+      <div style="font-size:10px;color:${C.gray}">Tomorrow · 2:00 PM · Rohit Mehta</div>
+      <div style="font-size:10px;color:${C.teal};font-weight:700">₹399 confirmed</div>
+    </div>
+  </div>
+  ${navBar("pro_home","pro")}`;
+}
+
+function proJobsScreen(){
+  return`
+  ${abar("My Jobs",null,null)}
+  <div style="padding:9px 14px">
+    <div style="display:flex;gap:5px;margin-bottom:11px;overflow-x:auto">
+      ${["Upcoming (2)","Completed (143)","Cancelled (3)"].map((f,i)=>`<div style="padding:4px 9px;border-radius:20px;font-size:9px;background:${i===0?C.teal:"#F1F5F9"};color:${i===0?"#fff":C.slate};font-weight:600;white-space:nowrap;flex-shrink:0">${f}</div>`).join("")}
+    </div>
+    ${[{t:"Fan Installation",sub:"Today · 11:30 AM · Priya Sharma",p:"₹249",a:"Navigate",c:C.teal},{t:"MCB Check",sub:"Tomorrow · 2:00 PM · Rohit Mehta",p:"₹399",a:"Details",c:C.navy}].map(j=>`
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <div style="font-size:11px;font-weight:700;color:${C.navy}">${j.t}</div>
+          <div style="font-size:10px;color:${C.gray}">${j.sub}</div>
+          <div style="font-size:10px;color:${C.teal};font-weight:700">${j.p}</div>
+        </div>
+        <div style="background:${j.c};color:#fff;border-radius:7px;padding:5px 8px;font-size:9px;font-weight:700">${j.a}</div>
+      </div>
+    </div>`).join("")}
+    <div class="sec-lbl">RECENTLY COMPLETED</div>
+    ${[{t:"Full Wiring (1BHK)",sub:"Jun 26 · Anita Singh",p:"₹1,999",r:5},{t:"Fan Install + Wiring",sub:"Jun 24 · Kavita S.",p:"₹548",r:5},{t:"MCB Replacement",sub:"Jun 22 · Deepak R.",p:"₹399",r:4}].map(j=>`
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div><div style="font-size:11px;font-weight:700;color:${C.navy}">${j.t}</div><div style="font-size:10px;color:${C.gray}">${j.sub}</div></div>
+        <div style="text-align:right">${strs(j.r)}<br><span style="font-size:9px;color:${C.teal};font-weight:700">${j.p}</span></div>
+      </div>
+    </div>`).join("")}
+  </div>
+  ${navBar("pro_jobs","pro")}`;
+}
+
+function proEarnScreen(){
+  return`
+  ${abar("My Earnings",null,null)}
+  <div style="padding:12px 14px">
+    <div style="background:linear-gradient(135deg,${C.teal},${C.navy});border-radius:12px;padding:16px 14px;margin-bottom:12px;color:#fff;text-align:center">
+      <div style="font-size:10px;color:#CCFBF1;letter-spacing:1px">JUNE 2026 TOTAL</div>
+      <div style="font-size:36px;font-weight:800">₹18,420</div>
+      <div style="font-size:10px;color:#A7F3D0">↑ 23% vs last month</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+      ${[["47","Jobs in June"],["₹391","Avg per Job"]].map(([v,l])=>`<div style="background:#fff;border-radius:9px;padding:11px;text-align:center;border:.5px solid #E2E8F0">
+        <div style="font-size:22px;font-weight:800;color:${C.teal}">${v}</div>
+        <div style="font-size:9px;color:${C.gray}">${l}</div>
+      </div>`).join("")}
+    </div>
+    <div class="sec-lbl">WITHDRAW EARNINGS</div>
+    <div class="card">
+      ${[["Available balance","₹4,200","#059669"],["Pending clearance","₹2,150",C.gray],["Bank / UPI","SBI ****4321",C.navy]].map(([l,v,c])=>`
+      <div class="info-row"><span style="color:${C.gray}">${l}</span><span style="font-weight:700;color:${c}">${v}</span></div>`).join("")}
+    </div>
+    <button class="btn btn-p">Withdraw ₹4,200 to Bank</button>
+  </div>
+  ${navBar("pro_earn","pro")}`;
+}
+
+// ── RENDER ───────────────────────────────────────────────────────
+const SCREENS={
+  splash:splashScreen,login:loginScreen,home:homeScreen,
+  search:searchScreen,pro_profile:proProfileScreen,booking:bookingScreen,
+  confirmed:confirmedScreen,bookings:bookingsScreen,
+  pro_home:proHomeScreen,pro_jobs:proJobsScreen,pro_earn:proEarnScreen,
+};
+
+function render(){
+  const fn=SCREENS[S.screen]||splashScreen;
+  document.getElementById("scroll").innerHTML=fn();
+  document.getElementById("mode-cust").style.background=S.mode==="customer"?"#0D9488":"#334155";
+  document.getElementById("mode-pro").style.background=S.mode==="pro"?"#0F2044":"#334155";
+  document.getElementById("scroll").scrollTop=0;
+}
+
+// ── ACTIONS ──────────────────────────────────────────────────────
+function startCustomer(){ss({mode:"customer",loginStep:0,phoneVal:"",otpVals:["","","","","",""],nameVal:"",screen:"login"});}
+function startPro(){ss({mode:"pro",loginStep:0,phoneVal:"",otpVals:["","","","","",""],nameVal:"",screen:"login"});}
+
+function finishLogin(){
+  const n=S.nameVal||(S.mode==="pro"?"Ramu Verma":"Priya Sharma");
+  if(S.mode==="pro") ss({proName:n,screen:"pro_home"});
+  else ss({userName:n,screen:"home"});
+}
+
+function handleOtp(val,i){
+  const arr=[...S.otpVals];arr[i]=val.slice(-1);ss({otpVals:arr});
+}
+
+function confirmBooking(total,time,wd,d,svcIdx){
+  const p=PROS.find(x=>x.id===S.selPro)||PROS[0];
+  ss({booking:{proName:p.name,time,wd,d,svc:p.services[svcIdx]?.name||"Service",total,pay:S.bookPay},tracked:false,jobDone:false,screen:"confirmed"});
+}
+
+function toggleTag(t){
+  const tags=S.ratingTags.includes(t)?S.ratingTags.filter(x=>x!==t):[...S.ratingTags,t];
+  ss({ratingTags:tags});
+}
+
+render();
+</script>
+</body>
+</html>
